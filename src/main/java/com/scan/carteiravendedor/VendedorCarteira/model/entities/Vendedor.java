@@ -7,16 +7,20 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
 
 @Entity
-@Table(name = "vendedores")
-public class Vendedor {
+@Table(name = "vendedor")
+public class Vendedor{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
+	
 
-	@NotBlank
+	@NotBlank(message = "Por favor, preencha o nome do vendedor.")
+	@NotNull(message = "Por favor, preencha o nome do vendedor.")
 	@Column(length = 155, nullable = false)
 	private String nome;
 	
@@ -28,23 +32,21 @@ public class Vendedor {
 	public Vendedor(String nome) {
 		this.nome = nome;
 	}
-	
-	
-	
+
 	public long getId() {
 		return id;
 	}
-	
+
 	public void setId(long id) {
 		this.id = id;
 	}
-	
+
 	public String getNome() {
 		return nome;
 	}
-	
+
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-
+	
 }

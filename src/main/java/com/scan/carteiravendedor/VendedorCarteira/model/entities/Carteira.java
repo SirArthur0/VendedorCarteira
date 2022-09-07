@@ -1,51 +1,57 @@
 package com.scan.carteiravendedor.VendedorCarteira.model.entities;
 
-import javax.persistence.Column;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.NotBlank;
 
 @Entity
-@Table(name = "carteiras")
+@Table(name = "carteira")
 public class Carteira {
-	
+	 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
-	@NotBlank
-	@Column(length = 155, nullable = false)
-	private String nome;
+	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	private Vendedor vendedor;
+	
+	
+	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	private Revenda revenda;
 	
 	
 	public Carteira() {
 		
 	}
-	
-	public Carteira(String nome) {
-		this.nome = nome;
-	}
-	
+
 	
 	public long getId() {
 		return id;
 	}
-	
+
 	public void setId(long id) {
 		this.id = id;
 	}
-	
-	public String getNome() {
-		return nome;
-	}
-	
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-	
-	
 
+	public Vendedor getVendedor() {
+		return vendedor;
+	}
+
+	public void setVendedor(Vendedor vendedor) {
+		this.vendedor = vendedor;
+	}
+
+	public Revenda getRevenda() {
+		return revenda;
+	}
+
+	public void setRevenda(Revenda revenda) {
+		this.revenda = revenda;
+	}
+	
 }
