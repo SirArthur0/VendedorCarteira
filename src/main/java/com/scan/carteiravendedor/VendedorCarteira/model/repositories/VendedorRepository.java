@@ -4,5 +4,10 @@ import org.springframework.data.repository.CrudRepository;
 import com.scan.carteiravendedor.VendedorCarteira.model.entities.Vendedor;
 
 public interface VendedorRepository extends CrudRepository<Vendedor, Long>{
+	
+	
+	public Iterable<Vendedor> findByNomeContainingIgnoreCase(String nome);
+	
 
 }
+

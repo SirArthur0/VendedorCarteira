@@ -1,7 +1,6 @@
 package com.scan.carteiravendedor.VendedorCarteira.controller;
 
 import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -28,7 +27,7 @@ public class CarteiraController {
 									+ "vendedor: " + carteira.getVendedor().getNome());
 			
 		}else {
-			System.out.println("Por ");
+			System.out.println("Por favor, digite os dados coretamente.");
 		}
 		
 		return carteira;

@@ -49,6 +49,11 @@ public class VendedorController {
 		
 	}
 	
+	@GetMapping(path = "/nome/{nome}")
+	public Iterable<Vendedor> obterPorNome(@PathVariable String nome){
+		return vr.findByNomeContainingIgnoreCase(nome);
+	}
+	
 	
 	
 	

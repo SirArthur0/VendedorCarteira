@@ -27,7 +27,7 @@ public class RevendaController {
 			rr.save(revenda);
 			System.out.println("Revenda " + revenda.getNome() + " cadastrado com sucesso!");
 		} else {
-			System.out.println("Digite os dados corretamente.");
+			System.out.println("Por favor, digite os dados corretamente.");
 		}
 		
 		return revenda;
@@ -44,4 +44,10 @@ public class RevendaController {
 		return rr.findById(id);
 	}
 		
+	
+	@GetMapping(path = "/nome/{nome}")
+	public Iterable<Revenda> obterPorNome(@PathVariable String nome){
+		return rr.findByNomeContainingIgnoreCase(nome);
+	}
+
 }
