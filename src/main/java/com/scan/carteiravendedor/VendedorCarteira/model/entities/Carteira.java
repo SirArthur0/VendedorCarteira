@@ -20,19 +20,18 @@ public class Carteira {
 	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private Vendedor vendedor;
 	
-	
 	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private Revenda revenda;
-	
-	
+
+
 	public Carteira() {
 		
 	}
 
-	
 	public long getId() {
 		return id;
 	}
+
 
 	public void setId(long id) {
 		this.id = id;

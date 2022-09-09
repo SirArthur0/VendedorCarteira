@@ -19,7 +19,6 @@ public class RevendaController {
 	@Autowired
 	private RevendaRepository rr;
 	
-	//teste
 	@RequestMapping(method = RequestMethod.POST, path = "/cadastrar")
 	public Revenda cadastroRevenda(@Valid Revenda revenda) {
 		
