@@ -28,11 +28,9 @@ public class Revenda{
 	private String cnpj;
 	
 	@Column(length = 6, nullable = true, unique = true)
-	private int mpn;
+	private Integer mpn;
 	
-	@NotBlank(message = "Por favor, preencha o desconto da revenda. Caso a revenda não tenha desconto, preencha 0%")
 	@NotNull(message = "O campo desconto não pode ser nulo. Caso a revenda não tenha desconto, preencha 0%")
-	@Column(nullable = false)
 	private Double desconto;
 
 	/*incluir data de cadastro*/
@@ -41,11 +39,12 @@ public class Revenda{
 	public Revenda() {
 		
 	}
-	
-	public Revenda(String nome, String cnpj, int mpn) {
+	 
+	public Revenda(String nome, String cnpj, Integer mpn, Double desconto) {
 		this.nome = nome;
 		this.cnpj = cnpj;
 		this.mpn = mpn;
+		this.desconto = desconto;
 	}
 
 	
@@ -73,12 +72,22 @@ public class Revenda{
 		this.cnpj = cnpj;
 	}
 
-	public int getMpn() {
+	public Integer getMpn() {
 		return mpn;
 	}
 
-	public void setMpn(int mpn) {
+	public void setMpn(Integer mpn) {
 		this.mpn = mpn;
+	}
+
+	public Double getDesconto() {
+		return desconto;
+	}
+
+	public void setDesconto(Double desconto) {
+		this.desconto = desconto;
 	}	
+	
+	
 	
 }

@@ -2,6 +2,7 @@ package com.scan.carteiravendedor.VendedorCarteira.controller;
 
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -11,6 +12,7 @@ import com.scan.carteiravendedor.VendedorCarteira.model.repositories.CarteiraRep
 @RestController
 @RequestMapping("/carteira")
 public class CarteiraController {
+	
 	
 	@Autowired
 	private CarteiraRepository cr;
@@ -30,6 +32,12 @@ public class CarteiraController {
 			System.out.println("Por favor, digite os dados coretamente.");
 		}
 		
+		return carteira;
+	}
+	
+	@PutMapping
+	public Carteira carteira(@Valid Carteira carteira) {
+		cr.save(carteira);
 		return carteira;
 	}
 	

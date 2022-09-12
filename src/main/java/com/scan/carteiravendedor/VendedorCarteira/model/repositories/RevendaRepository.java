@@ -7,5 +7,9 @@ public interface RevendaRepository extends CrudRepository<Revenda, Long>{
 	
 	
 	public Iterable<Revenda> findByNomeContainingIgnoreCase(String nome);
+	
+	public Iterable<Revenda> findByCnpjContainingIgnoreCase(String cnpj);
+
+	public Iterable<Revenda> findByDesconto(Double desconto);
 
 }

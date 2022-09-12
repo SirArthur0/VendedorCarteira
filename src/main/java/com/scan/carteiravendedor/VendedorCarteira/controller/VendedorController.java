@@ -5,6 +5,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,8 +18,6 @@ public class VendedorController {
 	
 	@Autowired
 	private VendedorRepository vr;
-	
-	
 	
 	@RequestMapping(method = RequestMethod.POST, path = "/cadastrar")
 	public Vendedor cadastroVendedor(@Valid Vendedor vendedor) {
@@ -54,7 +53,10 @@ public class VendedorController {
 		return vr.findByNomeContainingIgnoreCase(nome);
 	}
 	
-	
-	
+	@PutMapping
+	public Vendedor alterarVendedor(@Valid Vendedor vendedor) {
+		vr.save(vendedor);
+		return vendedor;
+	}
 	
 }

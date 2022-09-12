@@ -1,11 +1,11 @@
 package com.scan.carteiravendedor.VendedorCarteira.controller;
 
 import java.util.Optional;
-
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -48,5 +48,22 @@ public class RevendaController {
 	public Iterable<Revenda> obterPorNome(@PathVariable String nome){
 		return rr.findByNomeContainingIgnoreCase(nome);
 	}
+	
+	@GetMapping(path = "/cnpj/{cnpj}")
+	public Iterable<Revenda> obterPorDesconto(@PathVariable String cnpj){
+		return rr.findByCnpjContainingIgnoreCase(cnpj);
+	}
+	
+	@GetMapping(path = "/desconto/{desconto}")
+	public Iterable<Revenda> obterPorDesconto(@PathVariable Double desconto){
+		return rr.findByDesconto(desconto);
+	}
+	
+	@PutMapping
+	public Revenda alterarRevenda(@Valid Revenda revenda) {
+		rr.save(revenda);
+		return revenda;
+	}
+	
 
 }
