@@ -26,8 +26,8 @@ public class Revenda{
 	@NotNull(message = "O campo CNPJ não pode ser nulo.")
 	@Column(length = 18, nullable = false, unique = true)
 	private String cnpj;
-	
-	@Column(length = 6, nullable = true, unique = true)
+	 
+	@Column(length = 8, nullable = true, unique = true)
 	private Integer mpn;
 	
 	@NotNull(message = "O campo desconto não pode ser nulo. Caso a revenda não tenha desconto, preencha 0%")
