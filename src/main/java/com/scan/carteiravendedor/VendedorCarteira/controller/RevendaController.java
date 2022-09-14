@@ -30,7 +30,7 @@ public class RevendaController {
 		}
 		
 		return revenda;
-		
+		 
 	}
 	
 	@GetMapping("/todos")
