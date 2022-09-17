@@ -32,7 +32,7 @@ public class Revenda{
 	
 	@NotNull(message = "O campo desconto não pode ser nulo. Caso a revenda não tenha desconto, preencha 0%")
 	private Double desconto;
-	
+	 
 	
 	public Revenda() {
 		
